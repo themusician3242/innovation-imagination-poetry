@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://localhost:5173/innovation-imagination-poetry/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">import { injectIntoGlobalHook } from "/innovation-imagination-poetry/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="./innovation-imagination-poetry_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5173/innovation-imagination-poetry/favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innovation-imagination-poetry</title>
+  <style type="text/css" data-vite-dev-id="/home/aryanmahajan04/Projects/Web/innovation-imagination-poetry/src/index.css">:root {
+   /* Generic Styles */
+  --color-white: #ffffff;
+  --color-seethrough-white: rgb(255,255,255,0.75);
+  --color-dark-blue-1: #120141;
+  --color-transparent-dark-blue-1: #120141bb;
+  --color-transparent-dark-blue-1-hover: #120141;
+  --color-dark-blue-2: #1a015e;
+  --color-muted-grey: rgba(185,185,185,0.75);
+  --color-smoke-black: rgba(44,44,44,0.55);
+
+  /* Specific Styles */
+  --gradient-shiny-silver: radial-gradient(closest-corner at 75% 45%, rgba(255, 255, 255, 0.65) 15%, rgba(175,175,175,0.65));
+}
+
+/* Ensure the container box is strictly 100x100 and centers its content */
+.ignite-icon-wrapper {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevents any radical fire flickers from bleeding out */
+  position: relative;
+}
+
+/* Force the canvas to scale down smoothly and fit the box */
+.ignite-icon-wrapper canvas {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+}
+
+/* Reset default browser edge padding */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevents tiny canvas math variations from causing scrollbars */
+}
+
+img { 
+   max-width: 100%; /* Can shrink, but won't stretch larger than its native size */
+   height: auto;    /* Maintains correct aspect ratio */
+   display: block;  /* Removes the weird extra white-space alignment gap at the bottom */
+
+   border: solid 1px var(--color-muted-grey);
+   box-shadow: 0px 2px 6px var(--color-smoke-black);
+
+   transition: transform 0.5s ease;
+   cursor: pointer;
+}
+
+.footer-links img { 
+   max-width: 35px;
+   border: none;
+   box-shadow: none;
+}
+
+.footer-links img { 
+   transition: all 0.2s ease;
+}
+
+.footer-links img:hover { 
+   transform: scale(1.1);
+}
+
+.flex-container { 
+   display: flex;
+   justify-content: center;
+}
+
+/* style={{flexDirection: 'column', width: '50%', alignItems: 'center', textAlign: 'center', padding: '25px'}} */
+.chart-container {
+   flex-direction: column;
+   min-height: 400px;
+   text-align: center;
+   padding: 25px;
+}
+
+.results-container { 
+   display: flex;
+   width: 100%;
+   height: auto;
+}
+
+/* Reusable Styles */
+.glass-container { 
+     background-color: rgba(85,85,85,0.3);
+     backdrop-filter: blur(0.45);
+     border: solid 1px rgba(135,135,135,0.5);
+     box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+
+     max-height: 100%;
+}
+
+.shiny-transparent-card { 
+   background-image: var(--gradient-shiny-silver);
+   position: relative;
+   overflow: hidden;
+
+   box-shadow: 1px 1px 5px var(--color-smoke-black);
+   text-shadow: 1px 1px 3px rgba(82, 81, 81, 0.75);
+
+   transition: all 0.5s ease;
+}
+.shiny-transparent-card:hover { 
+   filter: brightness(1.5);
+}
+.shiny-transparent-card:active {
+   filter: contrast(2);
+}
+
+.dull-opaque-card { 
+   background-color: var(--color-dark-blue-1);
+   padding: 25px;
+   color: white;
+   border-radius: 15px;
+
+   border: solid 2px var(--color-dark-blue-2);
+   box-shadow: 1px 1px 4px var(--color-smoke-black);
+
+   transition: all 0.3s ease;
+}
+
+.dull-opaque-card:hover { 
+   filter: brightness(1.2);
+   transform: scale(1.05);
+
+   box-shadow: 3px 3px 7px var(--color-smoke-black);
+}
+
+.white-gradient { 
+   background-image: linear-gradient(to bottom, rgba(15, 15, 20, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+.black-gradient { 
+   background-image: linear-gradient(to bottom, rgba(0,0,0,0), black 10%);
+}
+
+  /* Cards */
+  .card-md {
+      /* Use max-width and percentage for fluidity instead of hard min-width */
+      max-width: 450px;
+  
+      /* Let the height adjust dynamically to content, but set a starting floor */
+  
+      /* Modern box model handling */
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+  
+      /* Padding keeps content away from the borders */
+      padding: 1.5rem;
+      border-radius: 8px; /* Smooths out aggressive corners */
+  
+      /* Smooth transitions for hover interactions */
+      transition: all 0.2s ease-in-out;
+
+      cursor: pointer;
+   }
+
+   .card-md img { 
+      max-width: 100%;
+   }
+
+   .card-md > div:nth-child(1) {
+      flex-shrink: 1;
+      max-width: 25%;
+      display: 'flex'
+   }
+
+   .card-md > div:nth-child(2) {
+      flex-shrink: 0;
+      display: 'flex';
+      align-items: flex-start;
+      flex-wrap: wrap;
+      max-width: 75%;
+   }
+
+   .card-md h5 { 
+      padding: 0;
+      margin: 0;
+      font-size: 1.5rem;
+   }
+
+   .card-md p {
+      font-size: 1.1rem !important; 
+   }
+
+.card-lg { 
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   width: 350px;
+
+   text-align: center;
+}
+
+.card-lg > div:nth-child(1) {
+   display: flex;
+   justify-content: center;
+}
+
+.card-lg img { 
+   width: 50%;
+}
+
+.card-lg h5 { 
+   margin: 15px 0;
+   font-size: 1.5rem;
+}
+
+/* ==========================================================================
+   DEFAULT VARIANT:
+- Poetic Style, Creative and Innovative
+- Literary
+   ========================================================================== */
+#app[data-variant='default'] {
+  width: 100%;
+  color: var(--color-white);
+
+  /* Headers */
+  & h1 { 
+     font-size: 7.5rem;
+  }
+
+  & h2 { 
+     font-size: 2rem;
+  }
+
+  & h3 { 
+     font-size: 2.75rem;
+  }
+
+  & h4 { 
+     font-size: 1.65rem;
+  }
+
+  & p {
+     font-size: 1.25rem;
+  }
+
+  & header {
+      position: fixed;
+      z-index: 3;
+      width: 100%;
+      margin: 0;
+      top: 0;
+      padding: 0.15rem 2rem;
+      background-color: var(--color-transparent-dark-blue-1);
+
+      transition: background-color 0.2s ease;
+  }
+
+  & header:hover {
+   background-color: var(--color-transparent-dark-blue-1-hover);
+  }
+
+  & footer {
+    background-color: var(--color-dark-blue-1);
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 1rem;
+  }
+
+  /* Target your newly restructured, un-nested hero element */
+  & #hero { 
+      background-image: url('/innovation-imagination-poetry/background/lecture-hall.jpg');
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      
+      min-height: 900px; /* Allow the container to grow naturally based on text height */
+
+      position: relative; 
+      margin: 0;
+      padding: 0;
+   
+      /* FIX 1: Prevent any rogue canvas dimensions from creating an overflow */
+      overflow: hidden; 
+
+      color: var(--color-seethrough-white);
+      text-shadow: 1px 1px 1px var(--color-white), 3px 3px 3px var(--color-smoke-black);
+   }
+
+   /* FIX 2: Force the p5 canvas to behave as a background element */
+   & #hero > canvas {
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+      z-index: 1; /* Sits cleanly beneath your text and gradient layers */
+   }
+
+  & .hero-container {
+     display: grid;
+     width: 100%;
+     height: 900px;
+     /* Define two equal fractional columns */
+     grid-template-rows: auto auto auto;
+     grid-template-columns: auto 600px; 
+     position: absolute;
+     top: 0;
+     bottom: auto;
+     left: 0;
+     z-index: 2;
+  }
+
+   .hero-container > div:not(.white-gradient) { 
+      position: relative;
+      opacity: 0;
+      top: 100px;
+      /* Largest Contentful Paint Load Time - */
+      transition: all 1.8s ease;
+  }
+
+  .hero-container > div:not(.white-gradient).loaded { 
+      opacity: 1;
+      top: 0;
+  }
+
+    /* Target the FIRST direct div inside #hero (The Text Box) */
+  & .hero-container > div:nth-child(1) {
+     grid-column: 1;
+     grid-row: 1 / 3;
+     padding: 25px 50px;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+  }
+
+  /* Target the SECOND direct div inside #hero (The Empty Right Panel) */
+  & .hero-container > div:nth-child(2) {
+     grid-column: 2;
+     grid-row: 1 / 3;
+     padding: 25px;
+     
+     display: flex;
+     align-items: flex-start;
+  }
+
+  /* style={{alignItems: 'center', flexWrap: 'wrap', textAlign: 'left', gap: '15px', overflowY: 'scroll', maxHeight: '70%', marginTop: '65px'}} */
+  & .hero-container > div:nth-child(2) > .flex-container { 
+     align-items: center;
+     gap: 15px;
+     flex-wrap: wrap;
+     text-align: left;
+     overflow-y: auto;
+     width: 100%;
+     margin-top: 75px;
+     height: 710px;
+  }
+
+  /*  style={{ display: 'flex', padding: 0, margin: 0, alignItems: 'flex-end', justifyContent: 'space-between'}} */
+  & .hero-title-and-icon { 
+      display: flex;
+      padding: 0;
+      margin: 0;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-direction: row;
+   }
+
+  & .hero-container > .white-gradient { 
+      grid-row: 3;
+      grid-column: 1 / -1;
+      z-index: 2;
+      pointer-events: none;
+  }
+
+  & main { 
+     display: grid;
+     width: 100%;
+     padding: 0 0 50px 0;
+     color: var(--color-dark-blue-1);
+  
+     /* FIXED: Define 2 columns and 2 explicit rows */
+     grid-template-columns: 45% 55%;
+     grid-template-rows: auto auto auto auto auto;
+  }
+
+  & section { 
+     padding: 0 20px; /* Optional: gives your text room to breathe */
+     align-items: stretch;
+  }
+
+  /* Target all sections inside main */
+   main > section * {
+      opacity: 0;
+      transform: translateY(50px); /* Subtle slide-up effect */
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      will-change: opacity, transform; /* Optimizes hardware acceleration */
+   }
+
+   /* The active class appended by React */
+   main > section *.loaded {
+      opacity: 1;
+      transform: translateY(0);
+   } 
+
+  /* Right Column - Top Box */
+
+  & section[data-section='introduction'] { 
+     grid-row: 2; 
+     grid-column: 2;
+  }
+
+  /* Left Column - Full Vertical Span */
+  & section[data-section='literature-review'] { 
+     grid-row: 2 / 4; /* Spans across row 1 and row 2 safely */
+     grid-column: 1;
+  }
+
+  /* Right Column - Bottom Box */
+  & section[data-section='methodology'] { 
+     grid-row: 3;
+     grid-column: 2;
+  }
+
+  & section[data-section='results'] {
+     grid-row: 4;
+     grid-column: 1 / -1;
+  }
+
+   & section[data-section='resources'] {
+     grid-row: 5;
+     grid-column: 1 / -1;
+  }
+
+  & footer { 
+     display: flex;
+  }
+
+  & footer div { 
+     flex-shrink: 0;
+  }
+
+  & .footer-links img {
+      filter: invert(1);
+  }
+
+  /* MacBook Design */
+  @media(max-width: 1200px) {
+      & .hero-container > div:nth-child(1) {
+         grid-column: 1 / -1;
+         grid-row: 1 / 3;
+         height: 105%;
+      }
+      & .hero-container > div:nth-child(2) {
+         grid-column: 1 / -1;
+         grid-row: 2;
+
+         display: none;
+      }
+      & .hero-container > .white-gradient { 
+         grid-row: 3;
+      }
+
+      section[data-section='introduction'] {
+         grid-column: 1 / -1;
+         grid-row: 1;
+      }
+
+      section[data-section='literature-review'] {
+         grid-column: 1 / -1;
+         grid-row: 2;
+      }
+
+      section[data-section='methodology'] {
+         grid-column: 1 / -1;
+         grid-row: 3;
+      }
+
+      section[data-section='results'] {
+         grid-column: 1 / -1;
+         grid-row: 4;
+      }
+
+      section[data-section='resources'] {
+         grid-column: 1 / -1;
+         grid-row: 5;
+      }
+  }
+
+  /* Phone Design */
+  @media (max-width: 450px) {
+      .hero-container > div { 
+         text-align: center;
+      }
+
+      /* FIX 1: Downscale typography so long words don't break the layout width */
+      & h1 { 
+         font-size: 3.2rem; /* Reduced from 5.5rem */
+         line-height: 1.1;
+         word-wrap: break-word; /* Defensive fallback for small screens */
+      }
+
+      & h3 { 
+         font-size: 1.3rem; /* Reduced from 2rem */
+         line-height: 1.4;
+      }
+
+      & p {
+         font-size: 1rem; /* Reduced from 1.1rem */
+         line-height: 1.5;
+      }
+
+      & #hero { 
+         padding-top: 95px;
+         margin: 0;
+         min-height: 700px;
+      }
+
+      & .hero-container { 
+         position: relative; /* Switch from absolute if it needs to push content down */
+         width: 100%;
+         height: auto;
+         margin: 0;
+         grid-template-rows: auto auto; /* Let content dictate row sizes dynamically */
+         grid-template-columns: 1fr;
+      }
+
+      & .hero-container > div:nth-child(1) {
+         grid-column: 1 / -1;
+         grid-row: 1;
+         
+         /* FIX 2: Swap explicit 100% heights out for standard padding box rules */
+         height: auto; 
+         width: 100%;
+         box-sizing: border-box; /* Force padding to stay inside the 100% width calculation */
+         padding: 30px 20px; /* Give text safe breathing room away from glass edges */
+      }
+      
+      & .hero-container > div:nth-child(2) {
+         display: none; 
+      }
+      
+      & .hero-container > .white-gradient { 
+         grid-column: 1 / -1;
+         grid-row: 2;
+         height: 150px; /* Instead of 100% of a massive row, give the bottom mask a fixed size */
+         margin-top: auto; /* Push it to the very bottom of the grid row block */
+      }
+
+      & .hero-title-and-icon { 
+         display: flex;
+         flex-direction: column-reverse;
+         align-items: center;
+         justify-content: center;
+         gap: 10px;
+      }
+  }
+}</style></head>
+  <body>
+    <div id="root"><div id="app" data-variant="default"><header><h2>Desi Di Nardo</h2></header><div id="hero"><div class="hero-container"><div class="loaded" style="transition-delay: 0ms;"><div class="hero-title-and-icon"><h1 style="margin: 0px;">IGNITE</h1><div class="ignite-icon-wrapper"><canvas id="defaultCanvas0" class="p5Canvas" width="400" height="400" style="width: 400px; height: 400px; touch-action: none;"></canvas></div></div><h3>Imagination And Innovation In Education: Poetry Pedagogy To Spark Engagement</h3><p>Poetry is not decoration; it is a galaxy of possibility—a living force moving through classrooms, through the world, and through us, where curiosity ignites, imagination radiates, and learning scintillates like interstellar light tracing the unseen lines that keep us afloat.</p></div><div class="loaded" style="transition-delay: 500ms;"><div class="flex-container"><div class="card-md shiny-transparent-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div><canvas id="defaultCanvas0" class="p5Canvas" width="0" height="0" style="width: 0px; height: 0px; position: absolute; top: 0px; left: 0px; z-index: 1; touch-action: none;"></canvas></div><div class="card-md shiny-transparent-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div><canvas id="defaultCanvas0" class="p5Canvas" width="0" height="0" style="width: 0px; height: 0px; position: absolute; top: 0px; left: 0px; z-index: 1; touch-action: none;"></canvas></div><div class="card-md shiny-transparent-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div><canvas id="defaultCanvas0" class="p5Canvas" width="0" height="0" style="width: 0px; height: 0px; position: absolute; top: 0px; left: 0px; z-index: 1; touch-action: none;"></canvas></div><div class="card-md shiny-transparent-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div><canvas id="defaultCanvas0" class="p5Canvas" width="0" height="0" style="width: 0px; height: 0px; position: absolute; top: 0px; left: 0px; z-index: 1; touch-action: none;"></canvas></div><div class="card-md shiny-transparent-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div><canvas id="defaultCanvas0" class="p5Canvas" width="0" height="0" style="width: 0px; height: 0px; position: absolute; top: 0px; left: 0px; z-index: 1; touch-action: none;"></canvas></div></div></div><div class="white-gradient"></div></div><canvas id="defaultCanvas0" class="p5Canvas" width="403" height="919" style="width: 403px; height: 919.344px; position: relative; touch-action: none;"></canvas></div><main><section data-section="introduction"><h2 class="loaded">Why Poetry?</h2><div class="flex-container loaded"><img alt="" src="./innovation-imagination-poetry_files/img-2.jpeg" class="loaded" style="width: 70%;"></div><p class="loaded">Poetry is multifaceted and personal. It allows students to explore these themes in structured classroom environments, serving as a catalyst for imagination, creativity, and ultimately innovation.</p></section><section data-section="literature-review"><h2 class="loaded">Literature Review</h2><div class="flex-container loaded"><embed src="/innovation-imagination-poetry/files/literature-review-preview.pdf" frameborder="0" type="application/pdf" style="width: 100%; height: 1000px;" class="loaded"></div></section><section data-section="methodology"><h2 class="loaded">The First Hand Experience of Poetry In The Classroom </h2><p class="loaded">Of 100 students who took COM1000...</p><div class="flex-container loaded" style="gap: 15px;"><div class="loaded" style="color: white; background-color: var(--color-dark-blue-1); padding: 25px; border-radius: 15px; font-weight: bold; text-align: center;">53% had direct exposure to a Poetry-focused curriculum.</div><div class="loaded" style="color: white; background-color: var(--color-dark-blue-1); padding: 25px; border-radius: 15px; font-weight: bold; text-align: center;">47% had an alternative (control) curriculum.</div></div></section><section data-section="results"><h2 class="loaded">Results &amp; Data</h2><h4 class="loaded">Imagination &amp; Personality In The Classroom Increases Engagement:</h4><div class="glass-container results-container loaded"><div class="flex-container chart-container loaded" style="width: 50%;"><div class="recharts-responsive-container loaded" style="width: 100%; height: 100%; min-width: 0px;"><div class="loaded" style="width: 0px; height: 0px; overflow: visible;"><div width="132" height="80" class="recharts-wrapper" style="position: relative; cursor: default; width: 132px; height: 80px;"><div xmlns="http://www.w3.org/1999/xhtml" tabindex="-1" class="recharts-tooltip-wrapper" style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"><div class="recharts-default-tooltip" role="status" aria-live="assertive" style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"><p class="recharts-tooltip-label" style="margin: 0px;"></p></div></div><svg cx="50%" cy="50%" role="application" tabindex="0" class="recharts-surface" width="132" height="80" viewBox="0 0 132 80" style="width: 100%; height: 100%; display: block;"><title></title><desc></desc><g tabindex="-1" class="recharts-zIndex-layer_-100"></g><g tabindex="-1" class="recharts-zIndex-layer_-50"></g><defs><clippath id="recharts1-clip"><rect x="5" y="5" height="70" width="122"></rect></clippath></defs><g tabindex="-1" class="recharts-zIndex-layer_100"><g class="recharts-layer recharts-pie" tabindex="0"><g class="recharts-layer"><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="66" cy="40" fill="#0076c4" stroke="#fff" name="Agreed" tabindex="-1" data-recharts-item-index="0" data-recharts-item-id="recharts-pie-_r_0_" class="recharts-sector" d="M 146,40
+    A 80,80,0,
+    0,0,
+    6.5484,-13.5304
+  L 21.4113,-0.1478
+            A 60,60,0,
+            0,1,
+            126,40 Z"></path></g></g><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="66" cy="40" fill="#002896" stroke="#fff" name="Strongly Agreed" tabindex="-1" data-recharts-item-index="1" data-recharts-item-id="recharts-pie-_r_0_" class="recharts-sector" d="M 2.1092,-8.1452
+    A 80,80,0,
+    1,0,
+    141.0069,67.8203
+  L 122.2551,60.8652
+            A 60,60,0,
+            1,1,
+            18.0819,3.8911 Z"></path></g></g><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="66" cy="40" fill="#28f8ff" stroke="#fff" name="Other" tabindex="-1" data-recharts-item-index="2" data-recharts-item-id="recharts-pie-_r_0_" class="recharts-sector" d="M 143.1461,61.1772
+    A 80,80,0,
+    0,0,
+    145.6956,46.9725
+  L 125.7717,45.2293
+            A 60,60,0,
+            0,1,
+            123.8596,55.8829 Z"></path></g></g></g></g></g><g tabindex="-1" class="recharts-zIndex-layer_200"></g><g tabindex="-1" class="recharts-zIndex-layer_300"></g><g tabindex="-1" class="recharts-zIndex-layer_400"></g><g tabindex="-1" class="recharts-zIndex-layer_500"></g><g tabindex="-1" class="recharts-zIndex-layer_600"></g><g tabindex="-1" class="recharts-zIndex-layer_1000"></g><g tabindex="-1" class="recharts-zIndex-layer_1100"></g><g tabindex="-1" class="recharts-zIndex-layer_1200"></g><g tabindex="-1" class="recharts-zIndex-layer_2000"></g></svg></div></div></div><p class="loaded" style="font-size: 1rem;">40% agreed, and 57% strongly agreed that imaginative or creative classroom activities contributed to sustained attention and focus during learning.</p></div><div class="flex-container chart-container loaded" style="width: 50%;"><div class="recharts-responsive-container loaded" style="width: 100%;height: 100%;min-width: 0px;opacity: 1;"><div class="loaded" style="width: 0px; height: 0px; overflow: visible;"><div width="131" height="152" class="recharts-wrapper" style="position: relative; cursor: default; width: 131px; height: 152px;"><div xmlns="http://www.w3.org/1999/xhtml" tabindex="-1" class="recharts-tooltip-wrapper" style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"><div class="recharts-default-tooltip" role="status" aria-live="assertive" style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"><p class="recharts-tooltip-label" style="margin: 0px;"></p></div></div><svg cx="50%" cy="50%" role="application" tabindex="0" class="recharts-surface" width="131" height="152" viewBox="0 0 131 152" style="width: 100%; height: 100%; display: block;"><title></title><desc></desc><g tabindex="-1" class="recharts-zIndex-layer_-100"></g><g tabindex="-1" class="recharts-zIndex-layer_-50"></g><defs><clippath id="recharts3-clip"><rect x="5" y="5" height="142" width="121"></rect></clippath></defs><g tabindex="-1" class="recharts-zIndex-layer_100"><g class="recharts-layer recharts-pie" tabindex="0"><g class="recharts-layer"><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="65.5" cy="76" fill="#0076c4" stroke="#fff" name="Agreed" tabindex="-1" data-recharts-item-index="0" data-recharts-item-id="recharts-pie-_r_1_" class="recharts-sector" d="M 145.5,76
+    A 80,80,0,
+    0,0,
+    -13.8156,65.5579
+  L 6.0133,68.1684
+            A 60,60,0,
+            0,1,
+            125.5,76 Z"></path></g></g><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="65.5" cy="76" fill="#002896" stroke="#fff" name="Strongly Agreed" tabindex="-1" data-recharts-item-index="1" data-recharts-item-id="recharts-pie-_r_1_" class="recharts-sector" d="M -14.4239,72.5104
+    A 80,80,0,
+    0,0,
+    131.7057,120.9089
+  L 115.1542,109.6817
+            A 60,60,0,
+            0,1,
+            5.5571,73.3828 Z"></path></g></g><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="65.5" cy="76" fill="#28f8ff" stroke="#fff" name="Other" tabindex="-1" data-recharts-item-index="2" data-recharts-item-id="recharts-pie-_r_1_" class="recharts-sector" d="M 135.3678,114.9678
+    A 80,80,0,
+    0,0,
+    145.1956,82.9725
+  L 125.2717,81.2293
+            A 60,60,0,
+            0,1,
+            117.9008,105.2259 Z"></path></g></g></g></g></g><g tabindex="-1" class="recharts-zIndex-layer_200"></g><g tabindex="-1" class="recharts-zIndex-layer_300"></g><g tabindex="-1" class="recharts-zIndex-layer_400"></g><g tabindex="-1" class="recharts-zIndex-layer_500"></g><g tabindex="-1" class="recharts-zIndex-layer_600"></g><g tabindex="-1" class="recharts-zIndex-layer_1000"></g><g tabindex="-1" class="recharts-zIndex-layer_1100"></g><g tabindex="-1" class="recharts-zIndex-layer_1200"></g><g tabindex="-1" class="recharts-zIndex-layer_2000"></g></svg></div></div></div><p class="loaded" style="font-size: 1rem;">50% of Desi's students agreed &amp; 43% strongly agreed that poetry or creative expression influenced levels of engagement.</p></div></div><h4 class="loaded">Letting Go of Academic Restraints Can Contribute To Academic Success:</h4><div class="glass-container results-container loaded"><div class="flex-container chart-container loaded" style="width: 50%;"><div class="recharts-responsive-container loaded" style="width: 100%; height: 100%; min-width: 0px;"><div class="loaded" style="width: 0px; height: 0px; overflow: visible;"><div width="132" height="224" class="recharts-wrapper" style="position: relative; cursor: default; width: 132px; height: 224px;"><div xmlns="http://www.w3.org/1999/xhtml" tabindex="-1" class="recharts-tooltip-wrapper" style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"><div class="recharts-default-tooltip" role="status" aria-live="assertive" style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"><p class="recharts-tooltip-label" style="margin: 0px;"></p></div></div><svg cx="50%" cy="50%" role="application" tabindex="0" class="recharts-surface" width="132" height="224" viewBox="0 0 132 224" style="width: 100%; height: 100%; display: block;"><title></title><desc></desc><g tabindex="-1" class="recharts-zIndex-layer_-100"></g><g tabindex="-1" class="recharts-zIndex-layer_-50"></g><defs><clippath id="recharts5-clip"><rect x="5" y="5" height="214" width="122"></rect></clippath></defs><g tabindex="-1" class="recharts-zIndex-layer_100"><g class="recharts-layer recharts-pie" tabindex="0"><g class="recharts-layer"><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="66" cy="112" fill="#0076c4" stroke="#fff" name="Reported Positive Experience" tabindex="-1" data-recharts-item-index="0" data-recharts-item-id="recharts-pie-_r_2_" class="recharts-sector" d="M 146,112
+    A 80,80,0,
+    1,0,
+    -10.9009,134.051
+  L 8.3243,128.5382
+            A 60,60,0,
+            1,1,
+            126,112 Z"></path></g></g><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="66" cy="112" fill="#002896" stroke="#fff" name="Reported Neutral/Negative Experience" tabindex="-1" data-recharts-item-index="1" data-recharts-item-id="recharts-pie-_r_2_" class="recharts-sector" d="M -8.6864,140.6694
+    A 80,80,0,
+    0,0,
+    145.6956,118.9725
+  L 125.7717,117.2293
+            A 60,60,0,
+            0,1,
+            9.9852,133.5021 Z"></path></g></g></g></g></g><g tabindex="-1" class="recharts-zIndex-layer_200"></g><g tabindex="-1" class="recharts-zIndex-layer_300"></g><g tabindex="-1" class="recharts-zIndex-layer_400"></g><g tabindex="-1" class="recharts-zIndex-layer_500"></g><g tabindex="-1" class="recharts-zIndex-layer_600"></g><g tabindex="-1" class="recharts-zIndex-layer_1000"></g><g tabindex="-1" class="recharts-zIndex-layer_1100"></g><g tabindex="-1" class="recharts-zIndex-layer_1200"></g><g tabindex="-1" class="recharts-zIndex-layer_2000"></g></svg></div></div></div><p style="font-size: 1rem;">56% of Desi's students reported poetry contributed to their academic experience.</p></div><div class="flex-container chart-container loaded" style="width: 50%;"><div class="recharts-responsive-container loaded" style="width: 100%; height: 100%; min-width: 0px;"><div class="loaded" style="width: 0px; height: 0px; overflow: visible;"><div width="131" height="152" class="recharts-wrapper" style="position: relative; cursor: default; width: 131px; height: 152px;"><div xmlns="http://www.w3.org/1999/xhtml" tabindex="-1" class="recharts-tooltip-wrapper" style="visibility: hidden; pointer-events: none; position: absolute; top: 0px; left: 0px;"><div class="recharts-default-tooltip" role="status" aria-live="assertive" style="margin: 0px; padding: 10px; background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); white-space: nowrap;"><p class="recharts-tooltip-label" style="margin: 0px;"></p></div></div><svg cx="50%" cy="50%" role="application" tabindex="0" class="recharts-surface" width="131" height="152" viewBox="0 0 131 152" style="width: 100%; height: 100%; display: block;"><title></title><desc></desc><g tabindex="-1" class="recharts-zIndex-layer_-100"></g><g tabindex="-1" class="recharts-zIndex-layer_-50"></g><defs><clippath id="recharts7-clip"><rect x="5" y="5" height="142" width="121"></rect></clippath></defs><g tabindex="-1" class="recharts-zIndex-layer_100"><g class="recharts-layer recharts-pie" tabindex="0"><g class="recharts-layer"><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="65.5" cy="76" fill="#0076c4" stroke="#fff" name="Responsed Included Terms &#39;Improved&#39; or &#39;Supported&#39;" tabindex="-1" data-recharts-item-index="0" data-recharts-item-id="recharts-pie-_r_3_" class="recharts-sector" d="M 145.5,76
+    A 80,80,0,
+    1,0,
+    -11.4009,98.051
+  L 7.8243,92.5382
+            A 60,60,0,
+            1,1,
+            125.5,76 Z"></path></g></g><g class="recharts-layer recharts-pie-sector" tabindex="-1"><g class="recharts-layer recharts-shape"><path cx="65.5" cy="76" fill="#002896" stroke="#fff" name="Responses Included Other Keywords" tabindex="-1" data-recharts-item-index="1" data-recharts-item-id="recharts-pie-_r_3_" class="recharts-sector" d="M -9.1864,104.6694
+    A 80,80,0,
+    0,0,
+    145.1956,82.9725
+  L 125.2717,81.2293
+            A 60,60,0,
+            0,1,
+            9.4852,97.5021 Z"></path></g></g></g></g></g><g tabindex="-1" class="recharts-zIndex-layer_200"></g><g tabindex="-1" class="recharts-zIndex-layer_300"></g><g tabindex="-1" class="recharts-zIndex-layer_400"></g><g tabindex="-1" class="recharts-zIndex-layer_500"></g><g tabindex="-1" class="recharts-zIndex-layer_600"></g><g tabindex="-1" class="recharts-zIndex-layer_1000"></g><g tabindex="-1" class="recharts-zIndex-layer_1100"></g><g tabindex="-1" class="recharts-zIndex-layer_1200"></g><g tabindex="-1" class="recharts-zIndex-layer_2000"></g></svg></div></div></div><p style="font-size: 1rem;">56% of these responses included the terms "improved" and "supported" in relation to their academic skills or performance.</p></div></div><h4>Here's What Desi's Students Had To Say</h4><div class="flex-container" style="margin: 10px 0px; gap: 15px; flex-wrap: wrap;"><p style="color: white; opacity: 0.85; background-color: var(--color-dark-blue-2); border-radius: 10px; padding: 15px; font-size: 1rem; display: flex; flex-direction: column; gap: 15px; text-align: center; max-width: 350px; font-style: italic;">"Poetry or creative writing can also be helpful because it allows students to express emotions and perspectives that might not come out in regular academic writing."</p><p style="color: white; opacity: 0.85; background-color: var(--color-dark-blue-2); border-radius: 10px; padding: 15px; font-size: 1rem; display: flex; flex-direction: column; gap: 15px; text-align: center; max-width: 350px; font-style: italic;">"These activities help students express ideas in a more personal and engaging way, instead of only writing formal essays."</p><p style="color: white; opacity: 0.85; background-color: var(--color-dark-blue-2); border-radius: 10px; padding: 15px; font-size: 1rem; display: flex; flex-direction: column; gap: 15px; text-align: center; max-width: 350px; font-style: italic;">"By providing more ways to engage: visually, with spoken words, and in research, allows students to expand beyond their limitations of learning and engagement to express themselves."</p></div></section><section data-section="resources"><h2>Teaching Tools</h2><div style="display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap;"><div class="card-lg dull-opaque-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div></div><div class="card-lg dull-opaque-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div></div><div class="card-lg dull-opaque-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div></div><div class="card-lg dull-opaque-card"><div><img alt="" src="./innovation-imagination-poetry_files/placeholder-img.jpg"></div><div><h5>Project Title</h5><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, magnam!</p></div></div></div></section></main><footer><p>desidinardo.com | All rights reserved.</p><div style="display: flex; justify-content: flex-end; align-items: center; gap: 15px;"><a class="footer-links" href="https://www.linkedin.com/in/desidinardo/"><img alt="LinkedIn" src="./innovation-imagination-poetry_files/linkedin-svgrepo-com.svg"></a><a class="footer-links" href="https://www.desinardo.com/"><img alt="My Website" src="./innovation-imagination-poetry_files/global-svgrepo-com.svg"></a><a class="footer-links" href="https://wwww.desidinardo.com/contact-me.html"><img alt="Contact Me" src="./innovation-imagination-poetry_files/contact-us-filled-svgrepo-com.svg"></a></div></footer></div></div>
+    <script type="module" src="./innovation-imagination-poetry_files/main.jsx"></script>
+  
+
+</body></html>
